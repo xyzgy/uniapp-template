@@ -1,6 +1,6 @@
 <template>
-	<view>
-		<button @click="themeStore.updateTheme('light')">updateTabBarStyle</button>
+	<view :class="[$theme.value]">
+		<button @click="changeTheme">主题变换</button>
 		<view> {{$theme}}</view>
 		<view> {{theme}}</view>
 	</view>
@@ -8,22 +8,25 @@
 
 <script setup>
 	import {
-		onLoad,
 		onShow
 	} from "@dcloudio/uni-app";
 	import {
 		useThemeStore
 	} from "@/pinia/modules/theme.js";
 	import {
-		inject
+		inject,
+		ref
 	} from 'vue'
 	import updateTabBarStyle from '@/hooks/updateTabBar.js'
 	updateTabBarStyle()
-
-	const themeStore = useThemeStore(),
-		theme = inject('global');
+	const theme = inject('global');
+	const themeStore = useThemeStore();
+	const changeTheme = () => {
+		themeStore.updateTheme();
+		updateTabBarStyle();
+	}
 	onShow(() => {
-		console.log('lllllllll', theme)
+		console.log('xxxx')
 	})
 </script>
 

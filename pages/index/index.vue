@@ -1,13 +1,11 @@
 <template>
-	<view class="container">
-		<x-navbar rightText="xxx" bgColor="transparent" statusBarColor="#fff" :navBarShow="true"></x-navbar>
-		<x-video />
+	<view class="container" :class="[$theme.value]">
+		<x-navbar rightText="xxx" bgColor="#fff" statusBarColor="#fff" :navBarShow="true"></x-navbar>
 		<view> {{$theme}}</view>
 		<button @click="mainStore.increment">pinia</button>
 		<button @click="show=true">cccc{{mainStore.count}} {{mainStore.zcount}}</button>
 		<!-- <x-popup :show="show">xxxxxxxxxxx</x-popup> -->
-		<view style="height: 800rpx;border: 1px solid red;"></view>
-		<view style="height: 800rpx;border: 1px solid red;"></view>
+		
 	</view>
 </template>
 
@@ -25,12 +23,17 @@
 		useMainStore
 	} from "@/pinia/modules/main.js";
 	import {
-		onLoad,
+		useThemeStore
+	} from "@/pinia/modules/theme.js";
+	import {
 		onShow
 	} from "@dcloudio/uni-app";
 
 	import updateTabBarStyle from '@/hooks/updateTabBar.js'
-	updateTabBarStyle()
+	
+	onShow(()=>{
+		updateTabBarStyle()
+	})
 
 	const mainStore = useMainStore();
 	// const {
@@ -44,6 +47,9 @@
 	// console.log('ROUTES', ROUTES)
 	// console.log('ROUTES', ROUTES_TABBAR)
 	// console.log(proxy.$name)
+	onShow(() => {
+		const themeStore = useThemeStore();
+	})
 </script>
 
 <style scoped lang="scss">

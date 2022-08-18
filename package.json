@@ -2,5 +2,12 @@
   "dependencies": {
     "dayjs": "^1.11.3",
     "luch-request": "^3.0.7"
-  }
+  },
+  "keywords": [
+  		"uniapp",
+  		"u-ui",
+  		"主题变换"
+  	],
+  	"author": "xyzgy",
+  	"license": "ISC"
 }

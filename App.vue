@@ -5,7 +5,6 @@
 	export default {
 		onLaunch: function() {
 			console.log('App Launch');
-
 			const themeStore = useThemeStore();
 			themeStore.initTheme()
 		},
@@ -33,4 +32,12 @@
 	}
 
 	/* #endif */
+	page {
+		height: 100%;
+	}
+	.dark{
+		background-color: #333;
+		color: red;
+		height: 100%;
+	}
 </style>

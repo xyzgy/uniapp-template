@@ -1,5 +1,5 @@
 <template>
-	<view class=" ">
+	<view class=" " :class="[$theme.value]">
 
 	</view>
 </template>
@@ -9,7 +9,9 @@
 		onShow
 	} from "@dcloudio/uni-app";
 	import updateTabBarStyle from '@/hooks/updateTabBar.js'
-	updateTabBarStyle()
+	onShow(() => {
+		updateTabBarStyle()
+	})
 </script>
 <style lang='scss' scoped>
 </style>
