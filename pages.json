@@ -1,0 +1,94 @@
+{
+	"leftWindow": {
+		"path": "windows/left-window.vue",
+		"style": {
+			"width": "0px"
+		}
+	},
+	"pages": [{
+		"path": "pages/index/index",
+		"style": {
+			"navigationBarTitleText": "uni-app",
+			"navigationStyle": "custom"
+		}
+	}, {
+		"path": "pages/second/second",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/third/third",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/index2/index2",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/login/login",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/maintain/maintain",
+		"style": {
+			"navigationBarTitleText": "维护中",
+			"enablePullDownRefresh": false
+		}
+
+	}],
+	"globalStyle": {
+		"maxWidth": 600,
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+
+
+	},
+	"tabBar": {
+		"color": "#333333",
+		"selectedColor": "#FD2E22",
+		"borderStyle": "white",
+		"backgroundColor": "#FFFFFF",
+		"height": "50px",
+		"fontSize": "10px",
+		"iconWidth": "30px",
+		"spacing": "0",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "static/c1.png",
+			"selectedIconPath": "static/c1.png",
+			"dark-iconPath": "static/c4.png",
+			"dark-selectedIconPath": "static/c4.png",
+			"text": "首页"
+		}, {
+			"pagePath": "pages/second/second",
+			"iconPath": "static/c2.png",
+			"selectedIconPath": "static/c2.png",
+			"dark-iconPath": "static/c5.png",
+			"dark-selectedIconPath": "static/c5.png",
+			"text": "second"
+		}, {
+			"pagePath": "pages/third/third",
+			"iconPath": "static/c3.png",
+			"selectedIconPath": "static/c3.png",
+			"dark-iconPath": "static/c6.png",
+			"dark-selectedIconPath": "static/c6.png",
+			"text": "third"
+		}]
+	}
+}
