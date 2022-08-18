@@ -1,15 +1,25 @@
 <template>
-	<view class=" ">
+	<view :class="[theme]">
 
 	</view>
 </template>
-<script setup>
-	import {
-		onLoad,
-		onShow
-	} from "@dcloudio/uni-app";
-	import updateTabBarStyle from '@/hooks/updateTabBar.js'
-	updateTabBarStyle()
+
+<script>
+	export default {
+		data() {
+			return {
+
+			}
+		},
+		methods: {
+
+		},
+		onShow() {
+			this.updateTabBarStyle()
+		},
+	}
 </script>
-<style lang='scss' scoped>
+
+<style>
+
 </style>

@@ -1,53 +1,57 @@
 <template>
-	<view class="container">
-		<x-navbar rightText="xxx" bgColor="transparent" statusBarColor="#fff" :navBarShow="true"></x-navbar>
-		<x-video />
-		<view> {{$theme}}</view>
-		<button @click="mainStore.increment">pinia</button>
-		<button @click="show=true">cccc{{mainStore.count}} {{mainStore.zcount}}</button>
-		<!-- <x-popup :show="show">xxxxxxxxxxx</x-popup> -->
-		<view style="height: 800rpx;border: 1px solid red;"></view>
-		<view style="height: 800rpx;border: 1px solid red;"></view>
+	<view class="content" :class="[theme]">
+		<image class="logo" src="/static/logo.png"></image>
+		<view>{{theme}}</view>
+		<button @click="changeTheme">模式切换</button>
 	</view>
 </template>
 
-<script setup>
-	import {
-		ref,
-		getCurrentInstance,
-		computed
-	} from 'vue'
-	import {
-		getPicture,
-		getSentence
-	} from '@/api/index.js';
-	import {
-		useMainStore
-	} from "@/pinia/modules/main.js";
-	import {
-		onLoad,
-		onShow
-	} from "@dcloudio/uni-app";
+<script>
+	export default {
+		data() {
+			return {
+				title: 'Hello'
+			}
+		},
+		onLoad() {
 
-	import updateTabBarStyle from '@/hooks/updateTabBar.js'
-	updateTabBarStyle()
-
-	const mainStore = useMainStore();
-	// const {
-	// 	count,
-	// 	zcount
-	// } = storeToRefs(mainStore)
-	// const show = ref(true);
-	// console.log(mainStore)
-	// const xxx = computed(() => zcount)
-
-	// console.log('ROUTES', ROUTES)
-	// console.log('ROUTES', ROUTES_TABBAR)
-	// console.log(proxy.$name)
+		},
+		onShow() {
+			this.updateTabBarStyle()
+		},
+		methods: {
+			changeTheme() {
+				this.$store.commit('UPDATE_THEME');
+				this.updateTabBarStyle()
+			}
+		}
+	}
 </script>
 
-<style scoped lang="scss">
-	.container {
-		// background: #236666;
+<style>
+	.content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.logo {
+		height: 200rpx;
+		width: 200rpx;
+		margin-top: 200rpx;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 50rpx;
+	}
+
+	.text-area {
+		display: flex;
+		justify-content: center;
+	}
+
+	.title {
+		font-size: 36rpx;
+		color: #8f8f94;
 	}
 </style>

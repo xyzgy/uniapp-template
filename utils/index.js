@@ -7,7 +7,9 @@ import {
 	dateFormat
 } from '@/utils/date.js';
 
-export {dateFormat};
+export {
+	dateFormat
+};
 
 // 检测更新
 export const checkUpdate = () => {
@@ -92,4 +94,21 @@ export const queryParams = (data = {}, isPrefix = true, arrayFormat = 'brackets'
 		}
 	}
 	return _result.length ? prefix + _result.join('&') : ''
+}
+
+
+export function copyClick(data) {
+	uni.setClipboardData({
+		data: data,
+		success: function(res) {
+			uni.getClipboardData({
+				success: function(res) {
+					uni.showToast({
+						title: "复制成功",
+						icon: 'none',
+					});
+				},
+			});
+		},
+	});
 }

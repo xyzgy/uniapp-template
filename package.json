@@ -1,6 +1,14 @@
 {
-  "dependencies": {
-    "dayjs": "^1.11.3",
-    "luch-request": "^3.0.7"
-  }
+	"dependencies": {
+		"dayjs": "^1.11.5",
+		"luch-request": "^3.0.7",
+		"uview-ui": "^2.0.33"
+	},
+	"keywords": [
+		"uniapp",
+		"uview",
+		"主题变换"
+	],
+	"author": "xyzgy",
+	"license": "ISC"
 }
