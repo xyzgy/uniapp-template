@@ -1,42 +1,31 @@
 <template>
-	<view>
-		<view v-if="statusBarShow">
-			<view class="navbar-fixed" :style="[statusBarHeight]"></view>
-			<template v-if="placeholder">
-				<view :style="[statusBarHeight]"></view>
-			</template>
-		</view>
-		<view v-if="navBarShow">
-			<x-uni-nav-bar :backgroundColor="backgroundColor" :fixed="fixed" :title="currentPageTitle" :placeholder="placeholder"
-				@clickLeft="leftClick" @clickRight="rightClick">
-				<template v-slot:left>
-					<slot name="left">
-						<uni-icons :type="leftIcon" :size="24" :color="color"></uni-icons>
-					</slot>
-				</template>
-				<slot>
-					<view class="navbar-title" :style="[navBarTitleStyle]"><text>{{currentPageTitle}}</text></view>
-				</slot>
-				<template v-slot:right>
-					<slot name="right">
-						<view :style="[rightTextStyle]">
-							{{rightText}}
-						</view>
-					</slot>
-				</template>
-			</x-uni-nav-bar>
-		</view>
-	</view>
+	<x-uni-nav-bar :navBar="navBarShow" :statusBar="statusBarShow" :backgroundColor="backgroundColor" :fixed="true"
+		:title="currentPageTitle" :navBarPlaceholder="true" :titleStyle="navBarTitleStyle" :statusBarPlaceholder="true" @clickLeft="leftClick" @clickRight="rightClick">
+		<template v-slot:left>
+			<slot name="left">
+				<uni-icons :type="leftIcon" :size="24" :color="color"></uni-icons>
+			</slot>
+		</template>
+		<template v-slot:right>
+			<slot name="right">
+				<view :style="[rightTextStyle]">
+					{{rightText}}
+				</view>
+			</slot>
+		</template>
+	</x-uni-nav-bar>
 </template>
 <script>
 	import xUniNavBar from '@/components/uni-components/uni-nav-bar/uni-nav-bar.vue'
 	export default {
 		name: 'x-navbar',
-		components:{xUniNavBar},
+		components: {
+			xUniNavBar
+		},
 		props: {
 			placeholder: {
 				type: Boolean,
-				default: true
+				default: false
 			},
 			statusBarShow: {
 				type: Boolean,
@@ -165,8 +154,14 @@
 <style lang='scss' scoped>
 	.navbar-fixed {
 		position: fixed;
+		/* #ifdef H5 */
 		left: var(--window-left);
 		right: var(--window-right);
+		/* #endif */
+		/* #ifndef H5 */
+		left: 0;
+		right: 0;
+		/* #endif */
 	}
 
 	.navbar-title {
@@ -176,11 +171,14 @@
 		align-items: center;
 		justify-content: center;
 		overflow: hidden;
+		border: 1px solid red;
 
-		text {
-			overflow: hidden;
-			white-space: nowrap;
-			text-overflow: ellipsis;
-		}
+	}
+
+	.navbar-title-text {
+		/* overflow: hidden; */
+		/* white-space: nowrap; */
+		/* text-overflow: ellipsis; */
+		border: 1px solid red;
 	}
 </style>

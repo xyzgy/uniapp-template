@@ -1,10 +1,11 @@
 <template>
 	<view class="uni-navbar" :class="{'uni-dark':dark}">
-		<view :class="{ 'uni-navbar--fixed': fixed, 'uni-navbar--shadow': shadow, 'uni-navbar--border': border }"
-			:style="{ 'background-color': themeBgColor }" class="uni-navbar__content">
+		<view class="uni-navbar__content"
+			:class="{ 'uni-navbar--fixed': fixed, 'uni-navbar--shadow': shadow, 'uni-navbar--border': border }"
+			:style="{ 'background-color': themeBgColor }">
 			<status-bar v-if="statusBar" />
 			<view :style="{ color: themeColor,backgroundColor: themeBgColor ,height:navbarHeight}"
-				class="uni-navbar__header">
+				class="uni-navbar__header" v-if="navBar">
 				<view @tap="onClickLeft" class="uni-navbar__header-btns uni-navbar__header-btns-left"
 					:style="{width:leftIconWidth}">
 					<slot name="left">
@@ -21,7 +22,7 @@
 					<slot>
 						<view class="uni-navbar__header-container-inner" v-if="title.length>0">
 							<text class="uni-nav-bar-text uni-ellipsis-1"
-								:style="{color: themeColor }">{{ title }}</text>
+								:style="{color: themeColor,...titleStyle }">{{ title }}</text>
 						</view>
 					</slot>
 				</view>
@@ -39,8 +40,8 @@
 			</view>
 		</view>
 		<view class="uni-navbar__placeholder" v-if="fixed">
-			<status-bar v-if="statusBar" />
-			<template v-if="placeholder">
+			<status-bar v-if="statusBarPlaceholder" />
+			<template v-if="navBarPlaceholder">
 				<view class="uni-navbar__placeholder-view" :style="{ height:navbarHeight}" />
 			</template>
 		</view>
@@ -65,7 +66,8 @@
 	 * @property {String} color 图标和文字颜色
 	 * @property {String} backgroundColor 导航栏背景颜色
 	 * @property {Boolean} fixed = [true|false] 是否固定顶部
-	 * @property {Boolean} statusBar = [true|false] 是否包含状态栏
+	 * @property {Boolean} statusBar = [true|false] 状态栏显示
+	 * @property {Boolean} navBar = [true|false] 导航栏显示
 	 * @property {Boolean} shadow = [true|false] 导航栏下是否有阴影
 	 * @property {Boolean} stat 是否开启统计标题上报
 	 * @event {Function} clickLeft 左侧按钮点击时触发
@@ -79,15 +81,45 @@
 		},
 		emits: ['clickLeft', 'clickRight', 'clickTitle'],
 		props: {
-			placeholder: {
-				type: Boolean,
-				default: true
-			},
 			dark: {
 				type: Boolean,
 				default: false
 			},
+			statusBarPlaceholder: {
+				type: Boolean,
+				default: true
+			},
+			navBarPlaceholder: {
+				type: Boolean,
+				default: true
+			},
+			navBar: {
+				type: [Boolean, String],
+				default: false
+			},
+			statusBar: {
+				type: [Boolean, String],
+				default: false
+			},
 			title: {
+				type: String,
+				default: ""
+			},
+			titleStyle: {
+				type: Object,
+				default () {
+					return {}
+				}
+			},
+			fixed: {
+				type: [Boolean, String],
+				default: false
+			},
+			color: {
+				type: String,
+				default: ""
+			},
+			backgroundColor: {
 				type: String,
 				default: ""
 			},
@@ -106,22 +138,6 @@
 			rightIcon: {
 				type: String,
 				default: ""
-			},
-			fixed: {
-				type: [Boolean, String],
-				default: false
-			},
-			color: {
-				type: String,
-				default: ""
-			},
-			backgroundColor: {
-				type: String,
-				default: ""
-			},
-			statusBar: {
-				type: [Boolean, String],
-				default: false
 			},
 			shadow: {
 				type: [Boolean, String],
