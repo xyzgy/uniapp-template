@@ -1,13 +1,13 @@
 // #ifdef APP-PLUS 
-import {APP_UPDATE_CONFIG} from "@/config.js"
+import {getAppUpdateNo,appUpdateColor,appUpdateIcon} from "./request.js"
 const platform = uni.getSystemInfoSync().platform;
 // 主颜色
-const $mainColor = APP_UPDATE_CONFIG.appUpdateColor ? APP_UPDATE_CONFIG.appUpdateColor : "FF5B78";
+const $mainColor = appUpdateColor || "FF5B78";
 // 弹窗图标url
-const $iconUrl = APP_UPDATE_CONFIG.appUpdateIcon ? APP_UPDATE_CONFIG.appUpdateIcon : "/uni_modules/zhouWei-APPUpdate/static/ic_ar.png";
+const $iconUrl = appUpdateIcon;
 
 // 获取当前应用的版本号
-export const getCurrentNo = function(callback) {
+const getCurrentNo = function(callback) {
 	// 获取本地应用资源版本号
 	plus.runtime.getProperty(plus.runtime.appid, function(inf) {
 		callback && callback({
@@ -795,8 +795,8 @@ function downloadPopup(data) {
 	return callbackData;
 }
 export default function(isPrompt = false) {
-	getCurrentNo(versionInfo => {
-		APP_UPDATE_CONFIG.getServerNo(versionInfo, isPrompt, res => {
+	getCurrentNo(info => {
+		getAppUpdateNo(info, isPrompt, res => {
 			if (res.updateType == "forcibly" || res.updateType == "silent") {
 				if (/\.wgt$/i.test(res.downloadUrl)) {
 					getDownload(res);

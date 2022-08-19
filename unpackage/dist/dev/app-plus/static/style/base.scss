@@ -1,0 +1,101 @@
+image {
+	will-change: transform;
+	width: 100%;
+	height: 100%;
+}
+::-webkit-scrollbar { //隐藏scroll-view滚动条
+	display: none;
+	width: 0;
+	height: 0;
+	color: transparent;
+}
+.flex {
+	display: flex;
+}
+.flex-1{
+	flex: 1;
+}
+.flex-align-center {
+	align-items: center;
+}
+.flex-align-end {
+	align-items: flex-end;
+}
+.flex-between {
+	justify-content: space-between;
+}
+.flex-around {
+	justify-content: space-around;
+}
+.flex-end {
+	justify-content: flex-end;
+}
+.flex-row {
+	flex-direction: row;
+}
+.flex-column {
+	flex-direction: column;
+}
+.flex-column-reverse {
+	flex-direction: column-reverse;
+}
+.flex-wrap {
+	flex-wrap: wrap;
+}
+.flex-nowrap {
+	flex-wrap: nowrap;
+}
+.fixed {
+	position: fixed;
+	left: var(--window-left);
+	right: var(--window-right)
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+.text-left {
+	text-align: left;
+}
+.text-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.text-line-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	flex-direction: column;
+}
+.text-line-ellipsis-show {
+	-webkit-line-clamp: 5; //超出多少行显示...
+}
+.text-line-ellipsis-hide {
+	-webkit-line-clamp: 0; //全部显示
+}
+.over-hidden{
+	overflow: hidden;
+}
+.inline-block {
+	display: inline-block;
+}
+.pointer {
+	cursor: pointer;
+}
+.text-wrap{
+	white-space:normal;
+	word-wrap: break-word;//截断单词并换行
+	word-break: break-all;//不截断单词，位置不够整体换行
+}
+.none {
+	display: none;
+}
+.font-bold {
+	font-weight: bold;
+}
+.font-bolder {
+	font-weight: bolder;
+}

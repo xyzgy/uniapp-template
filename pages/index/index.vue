@@ -1,6 +1,5 @@
 <template>
 	<view class="content" :class="[theme]">
-		<image class="logo" src="/static/logo.png"></image>
 		<view>{{theme}}</view>
 		<button @click="changeTheme">模式切换</button>
 	</view>

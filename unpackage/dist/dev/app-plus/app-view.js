@@ -245,15 +245,11 @@ var render = function() {
     "uni-view",
     { staticClass: _vm._$g(0, "sc"), class: _vm._$g(0, "c"), attrs: { _i: 0 } },
     [
-      _c("v-uni-image", {
-        staticClass: _vm._$g(1, "sc"),
-        attrs: { src: "/static/logo.png", _i: 1 }
-      }),
-      _c("uni-view", { attrs: { _i: 2 } }, [_vm._v(_vm._$g(2, "t0-0"))]),
+      _c("uni-view", { attrs: { _i: 1 } }, [_vm._v(_vm._$g(1, "t0-0"))]),
       _c(
         "v-uni-button",
         {
-          attrs: { _i: 3 },
+          attrs: { _i: 2 },
           on: {
             click: function($event) {
               return _vm.$handleViewEvent($event)
