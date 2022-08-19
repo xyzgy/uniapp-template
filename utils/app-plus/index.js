@@ -12,7 +12,7 @@ const getAppNo = (callback)=>{
 			versionCode: inf.versionCode,
 			versionName: inf.version
 		});
-	});
+	});  
 }
 
 export {
