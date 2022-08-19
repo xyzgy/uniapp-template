@@ -27,14 +27,11 @@
 	// 设置整个项目的背景色
 	page {
 		background-color: #f5f5f5;
-		border: 1px solid red;
+		// border: 1px solid red;
 		min-height: 100%;
 	}
 
 	/* #endif */
-	page {
-		height: 100%;
-	}
 	.dark{
 		background-color: #333;
 		color: red;

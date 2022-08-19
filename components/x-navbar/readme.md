@@ -9,7 +9,6 @@
 
 * 可通过setNavigationBarColor改变颜色
 
-
 ```
 	uni.setNavigationBarColor({
 		frontColor: '#ffffff',
