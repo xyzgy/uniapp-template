@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/second/second",
+    "pages/third/third"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#FD2E22",
+    "borderStyle": "white",
+    "backgroundColor": "#FFFFFF",
+    "height": "50px",
+    "fontSize": "10px",
+    "iconWidth": "30px",
+    "spacing": "0",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/c1.png",
+        "selectedIconPath": "static/c1.png",
+        "dark-iconPath": "static/c4.png",
+        "dark-selectedIconPath": "static/c4.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/second/second",
+        "iconPath": "static/c2.png",
+        "selectedIconPath": "static/c2.png",
+        "dark-iconPath": "static/c5.png",
+        "dark-selectedIconPath": "static/c5.png",
+        "text": "second"
+      },
+      {
+        "pagePath": "pages/third/third",
+        "iconPath": "static/c3.png",
+        "selectedIconPath": "static/c3.png",
+        "dark-iconPath": "static/c6.png",
+        "dark-selectedIconPath": "static/c6.png",
+        "text": "third"
+      }
+    ]
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于获取位置信息"
+    }
+  },
+  "usingComponents": {}
+}

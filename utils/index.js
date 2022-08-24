@@ -3,13 +3,11 @@ import {
 	appUpdate
 } from './app-plus/index.js'
 // #endif
+// #ifdef MP
 import {
-	dateFormat
-} from '@/utils/date.js';
-
-export {
-	dateFormat
-};
+	mpUpdate
+} from './mp/index.js'
+// #endif
 
 // 检测更新
 export const checkUpdate = () => {
@@ -17,29 +15,7 @@ export const checkUpdate = () => {
 	appUpdate()
 	// #endif
 	// #ifdef MP
-	const updateManager = uni.getUpdateManager();
-	updateManager.onCheckForUpdate(function(res) {
-		// 请求完新版本信息的回调
-	});
-	updateManager.onUpdateReady(function() {
-		uni.showModal({
-			title: '更新提示',
-			content: '新版本已经准备好，是否重启应用？',
-			success: function(res) {
-				if (res.confirm) {
-					// 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
-					updateManager.applyUpdate();
-				}
-			}
-		});
-	});
-	updateManager.onUpdateFailed(function() {
-		uni.showModal({
-			title: '更新提示',
-			content: '新版本下载失败',
-			success: function(res) {}
-		});
-	});
+	mpUpdate()
 	// #endif
 }
 
@@ -97,16 +73,18 @@ export const queryParams = (data = {}, isPrefix = true, arrayFormat = 'brackets'
 }
 
 
-export function copyClick(data) {
+export const copyClick=(data,toast='复制成功')=> {
 	uni.setClipboardData({
 		data: data,
 		success: function(res) {
 			uni.getClipboardData({
 				success: function(res) {
-					uni.showToast({
-						title: "复制成功",
-						icon: 'none',
-					});
+					if(toast){
+						uni.showToast({
+							title: toast,
+							icon: 'none',
+						});
+					}
 				},
 			});
 		},

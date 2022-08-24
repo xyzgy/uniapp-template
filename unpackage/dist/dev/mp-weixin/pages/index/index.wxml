@@ -1,0 +1,1 @@
+<view class="{{['content',theme]}}"><view>{{theme}}</view><button data-event-opts="{{[['tap',[['changeTheme',['$event']]]]]}}" bindtap="__e">模式切换</button></view>

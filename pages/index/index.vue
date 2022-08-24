@@ -4,19 +4,24 @@
 		<button @click="changeTheme">模式切换</button>
 	</view>
 </template>
-
 <script>
+	import {
+		getHotCollection
+	} from '@/api';
+	import requestListData from '@/mixins/requestListData.js'
 	export default {
+		mixins: [requestListData],
 		data() {
 			return {
 				title: 'Hello'
 			}
 		},
 		onLoad() {
-
+			this.req = getHotCollection;
+			this.getList()
 		},
 		onShow() {
-			this.updateTabBarStyle()
+			this.updateTabBarStyle();
 		},
 		methods: {
 			changeTheme() {

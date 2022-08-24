@@ -3,4 +3,4 @@ import {
 	CONFIG
 } from '@/config-global.js'
 
-export const VUE_APP_CONFIG = CONFIG.dev;
+export const VUE_APP_CONFIG = CONFIG.test;
